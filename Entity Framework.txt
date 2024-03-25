@@ -1,0 +1,88 @@
+Entity Framework
+
+Code First vs Database First
+
+DBContext
+Nuestra base de datos
+-Configurar la conexión
+
+DBSet
+-Representación de cada una de las tablas
+
+DATABASE FIRST
+Debemos de crear la base de datos primero, ahora debebmos de agregar un paquete: 'Microsoft.EntityFrameworkCore.Design' y nuestro proveedor 'sql'
+
+Importar las tablas, debemos de abrir la consola de administrador de paquetes, y colocar la siguientev línea de código:
+'Scaffold-DbContext "Data Source=DESKTOP-SJB53U5;Database=cursoEF2;Integrated Security=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir MODELS'
+
+
+
+Inyectar el DBContext, en el DBContext nos muestra la cadena de conexión, que no es lo mejor
+
+lo que debemos de hacer es el program.cs, añadir el dbcontext en el json, y en el json añadir la cadena de conexión
+
+si añadimos un campo en la tabla, como podemos agregarla en el proyecto?
+
+debemos de colocar la línea agregando esto:
+'Scaffold-DbContext "Data Source=DESKTOP-SJB53U5;Database=cursoEF2;Integrated Security=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir MODELS -Force'
+
+Code First
+Creamos el código primero, que hace referencia a las tablas
+
+
+Migraciones en Entity Framework
+Que son las migraciones
+es la forma de mantener el código, el modelo en sincronía con la base de datos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

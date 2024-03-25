@@ -1,0 +1,145 @@
+Web API
+Debemos de crear nuestro proyecto.
+Debemos de crear otro proyecto.
+	En donde vamos a agregar una biblioteca de clases, llamada DB
+	¿Qué es?
+	 En C#, una biblioteca de clases se refiere a un conjunto de clases y tipos que están 	organizados y agrupados para facilitar la reutilización de código. Estas bibliotecas 	contienen funciones y características comunes que se pueden utilizar en diferentes 	aplicaciones.
+
+Instalamos las herramientas necesarias
+	-Microsoft.EntityFrameworkCore	
+
+	-Microsoft.EntityFrameworkCore.SqlServer
+		-Instalamos dependiendo de nuestra versión.
+	
+
+	-Microsoft.EntityFrameworkCore.Tools
+
+Contexto
+
+
+Conexión con la base de datos.
+
+
+Versionamiento
+	Cada vez que tenemos un cambio.
+	
+	Nuestras clases están en DB, donde podemos colocar la conexión.
+	Con el comando: Add-Migration InitDB
+	Iniciamos la migración, se nos crea una carpeta
+
+OnModelCreating
+	-Sembrado de datos
+	-En APIDbContext, empezamos a hacer el sembrado de la base de datos
+	-DbConetxt, nuetsro contenedor de la base de datos.
+
+
+---------------------------------------------------------------------
+
+Se refiere de insertar data definida, a la base de datos.
+
+
+
+
+
+
+---------------------------------------------------------------------
+COMO CREAMOS UN PROYECTO EN WEBAPI
+
+1.- Creamos el modelo.
+	-Con cada una de las propiedades que debe de contener.
+
+2.- Creamos una carpeta DATA, donde debemos de crear:
+Creamos una clase con el nombre de la API, junto con DbContext
+Ejemplo: 'CrecosDbContext'
+	-DbContext
+	-DBSet
+
+public class CrecosDbContext : DbContext //Heredamos la propiedad DbContext
+{
+    public CrecosDbContext(DbContextOptions<CrecosDbContext> options)
+            :base (options)
+    {
+        
+    }
+    public DbSet<tuModelo> NombreModelo { get; set; } //DbSet son las tablas
+
+
+Después debemos de crear en program.cs
+Después del Swagger
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<Nombre de tu DbContext>(options=> options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog =<Nombre de tu base de datos>"));
+
+	aplicamos cambios a
+
+Ahora creamo el controlador, y en el mismo empezamos a modificar los verbos de la API
+
+MIGRACIONES
+-Utilizamos el 'Controlador de Paquetes NuGet'
+-Y colocamos: 'Add-Migration PrimeraMigracion'
+-Actualizamos la base de datos con el comando: 'update-database'
+
+SEMBRADO DE DATOS.
+protected override void OnModelCreating(ModelBuilder modelBuilder){
+
+	Hola amigos de Youtube en este tutorial vamos a hacer el deber de Gustavo, ya estamos atrasados, pero lo que importa es el esfuerzo, 
+
+
+
+}
+
+
+Verbos
+GET-> Obtener
+GETID-> Obtener por el ID
+POST-> Insertar un valor
+PUT-> Actualizar un plato
+DELETE-> Eliminar un elemento
+
+
+	
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    #region Populate Songs
+
+    modelBuilder.Entity<Song>().HasData(
+        new Song
+        {
+            Title = "ABC",
+            Language = "Spanish",
+            Duration = "3 minutos"
+        },
+        new Song
+        {
+            Title = "Si nos dejan",
+            Language = "Spanish",
+            Duration = "2.58 minutos"
+        });
+    #endregion
+}
+
+Crear un controlador con acciones que usan EntityFramework
+termi									
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
